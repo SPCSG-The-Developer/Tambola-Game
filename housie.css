@@ -1,0 +1,787 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto' , sans-serif;
+  }
+  #dc{
+    grid-column: span 10  ;
+    justify-self: center;
+    text-align: center;
+  }
+  #dc a{
+    text-decoration: none;
+    font-size: 30px;
+    color: saddlebrown;
+  }
+  #space{
+    grid-column: span 10;
+  }
+  .container{
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    min-height: 100vh;
+    align-content: center;
+  }
+  .numbers_sheet{
+    display: grid;
+    grid-template-columns: repeat(10,50px);
+    grid-auto-rows: 50px;
+    justify-content: center;
+  }
+  .numbers_sheet > button{
+    font-size: 2.3vh;
+    border:1px solid white;
+    outline: none;
+    background-color: #FFDBAC;
+  }
+  .middle{
+    justify-self: center;
+    align-self:  center;
+  }
+  .restart{
+    height: 7vh;
+    width: 10vw;
+    border:2px solid white;
+    outline: none;
+    padding: 10px 10px 10px 10px;
+    margin: 20px 30px 20px 30px;
+    font-size: 20px;
+    background-color: #FFDBAC;
+  }
+  .restart:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.1);
+  }
+  .numbers_generator{
+    text-align: center;
+    height: 30vh;
+    width: 15vw;
+    background-color: #FFDBAC;
+    border: 1px solid #0f0f0f;
+  }
+  .numbers_generator > .num_tiltle{
+    font-size: 25px;
+    padding-top: 20px;
+  }
+  .numbers_generator > button{
+    border:2px solid white;
+    outline: none;
+    padding: 10px 10px 10px 10px;
+    margin: 20px;
+    font-size: 20px;
+    background-color: #FFDBAC;
+  }
+  #showNumber{
+    font-size: 50px;
+    margin: 10px;
+  }
+  .numbers_generator > button:hover{
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.5);
+  }
+  .tickets_container{
+    display: grid;
+    grid-template-columns: repeat(1,40vw);
+    grid-gap: 10vh;
+  }
+  .ticket{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(9,50px);
+    grid-auto-rows: 50px;
+    justify-content: center;
+    align-content: center;
+  }
+  .ticket > .player1 , .player2{
+    grid-column: span 9;
+    background-color: #FFDBAC;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+  }
+  .ticket >button{
+    border:1px solid white;
+    outline: none;
+    background-color: #FFDBAC;
+  }
+  #modal {
+   display: block;
+   position: fixed;
+   font-family: Arial, Helvetica, sans-serif;
+   top: 0;
+   left: 0;
+   background-color:#FDFFF5 ;
+   z-index: 99999;
+   height: 100%;
+   width: 100%;
+  }
+ .modalconent {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background:#FFDBAC;
+   width: 70%;
+   height: 70%;
+   padding: 20px;
+   -webkit-box-shadow: -4px 6px 22px -5px #000000;
+   box-shadow: -4px 6px 22px -5px #000000;
+ }
+ .modalconent > .modalContainer{
+   padding: 10vh;
+   display: grid;
+   grid-template-rows: 50% 50%;
+   height: 30vh;
+ }
+ .playerNames{
+   display: grid;
+   grid-template-columns:  50% 50%;
+ }
+ .game{
+   display: grid;
+   grid-template-columns: 50% 25% 25%;
+   align-content: center;
+ }
+
+ .radiobtn{
+   align-self: center;
+   font-size: 25px;
+ }
+ input[type = radio]{
+   height: 15px;
+   width: 15px;
+ }
+ .start{
+   margin: 5vh;
+ }
+ .modalconent > .modalContainer > button{
+   height: 8vh;
+   width: 10vw;
+   border-radius: 1%;
+   border:none;
+   outline:none;
+   color: #0f0f0f;
+   font-size: 30px;
+   background-color: #FFDBAC;
+   border:2px solid rgba(0, 0, 0, 0.5);
+   justify-self: center;
+   align-self: end;
+   transition:all 0.3s ease-in;
+ }
+ .modalconent > .modalContainer > button:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  cursor: pointer;
+ }
+ .playerNames > input[type=text]{
+   outline: none;
+   border:1.5px solid #cbcbcb;
+   height: 5vh;
+   width: 20vw;
+   font-size: 2.5vh;
+   padding-left: 10px;
+   transition:all 0.3s ease-in;
+ }
+ .playerNames > input[type=text]:hover{
+   border:1.5px solid green;
+ }
+.winner{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.winner > .winnerBox{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 50vh;
+  width: 50vw;
+  background-color: #FFDBAC;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+#btn{
+  display: none;
+  margin-left: 3.6vw;
+}
+
+/*---------- iPhone 6, 6S, 7 and 8 ----------*/
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+      .modalconent {
+        width: 75%;
+        height: 70%;
+   }
+    .modalconent > h1{
+        font-size: 20px;
+   }
+      .modalconent > .modalContainer{
+        padding-top: 0;
+        grid-template-rows: 100%;
+        height: 20vh;
+      }
+      .playerNames{
+        font-size: 13px;
+      }
+      .playerNames > input[type=text]{
+        height: 2.5vh;
+        width: 25vw;
+        margin-top: 1.8vh;
+        padding-left: 2px;
+        font-size: 10px;
+        background-color: rgba(255,255,255,0.5);
+      }
+      .game{
+        grid-template-columns: 100% ;
+        font-size: 13px;
+      }     
+      .radiobtn{
+        align-self: center;
+        font-size: 20px;
+      }
+      input[type = radio]{
+        height: 13px;
+        width: 13px;
+      }
+      .start{
+        margin: 3vh;
+      }
+      .modalconent > .modalContainer > button{
+        height: 5vh;
+        width: 20vw;
+        font-size: 20px;
+      }  
+  .container{
+    grid-template-columns: 100%;
+  }
+  .numbers_sheet{
+    grid-template-columns: repeat(10,30px);
+    grid-auto-rows: 30px;
+    margin-top: 20px;
+  }
+  .numbers_sheet > button{
+    font-size: 2vh;
+  }
+  .middle{
+      display: flex;
+      flex-direction: row;
+      justify-self: start;
+  }
+  .restart{
+    margin-top: 6vh;  
+    height: 12vh;
+    width: 12vh;
+    font-size: 15px;
+    border-radius: 5%;
+  }
+  .numbers_generator{
+    text-align: center;
+    height: 17vh;
+    width: 50vw;
+    margin-top: 19px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 5%;
+  }
+  .numbers_generator > .num_tiltle{
+     font-size: 15px;
+     font-weight: bold;
+  }
+  .numbers_generator > button{
+    justify-self: center;
+    align-self: center;
+    height: 4vh;
+    width: 25vw;
+    padding: 0px 10px 0px 10px;
+    margin-top:5px;
+    font-size: 15px;
+    background-color:transparent;
+  }
+  #showNumber{
+    font-size: 23px;
+    margin: auto;
+    padding: auto;
+    font-weight: bold;
+  }
+  .numbers_generator > button:hover{
+    background-color: transparent;
+  }
+  .tickets_container{
+    grid-template-columns: repeat(1,40vw);
+    grid-gap: 0vh;
+    margin-left: 28%;
+  }
+  .ticket{
+    margin: 10px;
+    grid-template-columns: repeat(9,33px);
+    grid-auto-rows: 33px;
+  }
+  .ticket > .player1 , .player2{
+    font-size: 20px;
+    padding: 5px;
+  }
+  .ticket >button{
+    border:1px solid white;
+    outline: none;
+    background-color: #FFDBAC;
+  }
+  .winner{
+    background-color: rgba(245, 245, 245, 0.575);
+  }
+  .winner > .winnerBox{
+    top: 30%;
+    left: 20%;
+    transform: translate(-10%,-10%);
+    height: 30vh;
+    width: 70vw;
+    font-size: 10px;
+    color: black;
+    text-align: center;
+  }
+  #last{
+    display: block;
+    height: 5vh;
+    margin-left: 33%;
+  }
+}
+
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .modalconent {
+        width: 75%;
+        height: 70%;
+   }
+    .modalconent > h1{
+        font-size: 15px;
+   }
+      .modalconent > .modalContainer{
+        padding-top: 0;
+        grid-template-rows: 100%;
+        height: 20vh;
+      }
+      .playerNames{
+        font-size: 13px;
+      }
+      .playerNames > input[type=text]{
+        height: 2.5vh;
+        width: 25vw;
+        margin-top: 1.8vh;
+        padding-left: 2px;
+        font-size: 10px;
+        background-color: rgba(255,255,255,0.5);
+      }
+      .game{
+        grid-template-columns: 100% ;
+        font-size: 12px;
+      }     
+      .radiobtn{
+        align-self: center;
+        font-size: 15px;
+      }
+      input[type = radio]{
+        height: 13px;
+        width: 13px;
+      }
+      .start{
+        margin: 3vh;
+      }
+      .modalconent > .modalContainer > button{
+        height: 5vh;
+        width: 20vw;
+        font-size: 20px;
+      }  
+  .container{
+    grid-template-columns: 100%;
+  }
+  .numbers_sheet{
+    grid-template-columns: repeat(10,30px);
+    grid-auto-rows: 30px;
+    margin-top: 20px;
+  }
+  .numbers_sheet > button{
+    font-size: 2vh;
+  }
+  .middle{
+      display: flex;
+      flex-direction: row;
+      justify-self: start;
+  }
+  .restart{
+    margin-top: 6vh;  
+    height: 12vh;
+    width: 12vh;
+    font-size: 15px;
+    border-radius: 5%;
+  }
+  .numbers_generator{
+    text-align: center;
+    height: 17vh;
+    width: 50vw;
+    margin-top: 19px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 5%;
+  }
+  .numbers_generator > .num_tiltle{
+     font-size: 15px;
+     font-weight: bold;
+  }
+  .numbers_generator > button{
+    justify-self: center;
+    align-self: center;
+    height: 4vh;
+    width: 23vw;
+    padding: 0px 10px 0px 10px;
+    margin-top:2px;
+    margin-bottom: 3px;
+    font-size: 11px;
+    background-color:transparent;
+  }
+  #showNumber{
+    font-size: 20px;
+    margin: auto;
+    padding: auto;
+    font-weight: bold;
+  }
+  .numbers_generator > button:hover{
+    background-color: transparent;
+  }
+  .tickets_container{
+    grid-template-columns: repeat(1,40vw);
+    grid-gap: 0vh;
+    margin-left: 28%;
+  }
+  .ticket{
+    margin: 10px;
+    grid-template-columns: repeat(9,33px);
+    grid-auto-rows: 33px;
+  }
+  .ticket > .player1 , .player2{
+    font-size: 20px;
+    padding: 5px;
+  }
+  .ticket >button{
+    border:1px solid white;
+    outline: none;
+    background-color: #FFDBAC;
+  }
+  .winner{
+    background-color: rgba(245, 245, 245, 0.575);
+  }
+  .winner > .winnerBox{
+    top: 30%;
+    left: 20%;
+    transform: translate(-10%,-10%);
+    height: 40vh;
+    width: 70vw;
+    font-size: 10px;
+    color: black;
+    text-align: center;
+  }
+  #last{
+    display: block;
+    height: 5vh;
+    margin-left: 33%;
+  }
+}
+
+@media only screen 
+  and (min-device-width: 400px) 
+  and (max-device-width: 850px) 
+  and (max-device-aspect-ratio: 16/9) {
+    .modalconent {
+      width: 75%;
+      height: 70%;
+ }
+  .modalconent > h1{
+      font-size: 20px;
+ }
+    .modalconent > .modalContainer{
+      padding-top: 0;
+      grid-template-rows: 100%;
+      height: 20vh;
+    }
+    .playerNames{
+      font-size: 13px;
+    }
+    .playerNames > input[type=text]{
+      height: 2.5vh;
+      width: 25vw;
+      margin-top: 1.8vh;
+      padding-left: 2px;
+      font-size: 10px;
+      background-color: rgba(255,255,255,0.5);
+    }
+    .game{
+      grid-template-columns: 100% ;
+      font-size: 13px;
+    }     
+    .radiobtn{
+      align-self: center;
+      font-size: 20px;
+    }
+    input[type = radio]{
+      height: 13px;
+      width: 13px;
+    }
+    .start{
+      margin: 3vh;
+    }
+    .modalconent > .modalContainer > button{
+      height: 5vh;
+      width: 20vw;
+      font-size: 20px;
+    }  
+.container{
+  grid-template-columns: 100%;
+}
+.numbers_sheet{
+  grid-template-columns: repeat(10,30px);
+  grid-auto-rows: 30px;
+  margin-top: 20px;
+}
+.numbers_sheet > button{
+  font-size: 2vh;
+}
+.middle{
+    display: flex;
+    flex-direction: row;
+    justify-self: start;
+}
+.restart{
+  margin-top: 4.5vh;  
+  height: 12vh;
+  width: 12vh;
+  font-size: 15px;
+  border-radius: 5%;
+}
+.numbers_generator{
+  text-align: center;
+  height: 17vh;
+  width: 50vw;
+  margin-top: 19px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 5%;
+}
+.numbers_generator > .num_tiltle{
+   font-size: 15px;
+   font-weight: bold;
+}
+.numbers_generator > button{
+  justify-self: center;
+  align-self: center;
+  height: 4vh;
+  width: 25vw;
+  padding: 0px 10px 0px 10px;
+  margin-top:5px;
+  font-size: 15px;
+  background-color:transparent;
+}
+#showNumber{
+  font-size: 23px;
+  margin: auto;
+  padding: auto;
+  font-weight: bold;
+}
+.numbers_generator > button:hover{
+  background-color: transparent;
+}
+.tickets_container{
+  grid-template-columns: repeat(1,40vw);
+  grid-gap: 0vh;
+  margin-left: 28%;
+}
+.ticket{
+  margin: 10px;
+  grid-template-columns: repeat(9,33px);
+  grid-auto-rows: 33px;
+}
+.ticket > .player1 , .player2{
+  font-size: 20px;
+  padding: 5px;
+}
+.ticket >button{
+  border:1px solid white;
+  outline: none;
+  background-color: #FFDBAC;
+}
+.winner{
+  background-color: rgba(245, 245, 245, 0.575);
+}
+.winner > .winnerBox{
+  top: 30%;
+  left: 20%;
+  transform: translate(-10%,-10%);
+  height: 30vh;
+  width: 70vw;
+  font-size: 10px;
+  color: black;
+  text-align: center;
+}
+#last{
+  display: block;
+  height: 5vh;
+  margin-left: 33%;
+}
+  }
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .modalconent {
+        width: 75%;
+        height: 70%;
+   }
+    .modalconent > h1{
+        font-size: 35px;
+   }
+      .modalconent > .modalContainer{
+        padding-top: 0;
+        grid-template-rows: 100%;
+        height: 20vh;
+      }
+      .playerNames{
+        font-size: 25px;
+      }
+      .playerNames > input[type=text]{
+        height: 3.5vh;
+        width: 30vw;
+        margin-top: 2.7vh;
+        padding-left: 5px;
+        font-size: 10px;
+        background-color: rgba(255,255,255,0.5);
+      }
+      .game{
+        grid-template-columns: 100% ;
+        font-size: 25px;
+      }     
+      .radiobtn{
+        align-self: center;
+        font-size: 30px;
+      }
+      input[type = radio]{
+        height: 18px;
+        width: 18px;
+      }
+      .start{
+        margin: 3vh;
+      }
+      .modalconent > .modalContainer > button{
+        height: 5vh;
+        width: 20vw;
+        font-size: 35px;
+      }  
+  .container{
+    grid-template-columns: 100%;
+  }
+  .numbers_sheet{
+    grid-template-columns: repeat(10,60px);
+    grid-auto-rows: 60px;
+    margin-top: 20px;
+  }
+  .numbers_sheet > button{
+    font-size: 2vh;
+  }
+  .middle{
+      display: flex;
+      flex-direction: row;
+      justify-self: start;
+      margin-left: 10%;
+  }
+  .restart{
+    margin-top: 6vh;  
+    height: 12vh;
+    width: 12vh;
+    font-size: 22px;
+    border-radius: 2%;
+  }
+  .numbers_generator{
+    text-align: center;
+    height: 13vh;
+    width: 50vw;
+    margin-top: 53px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 5%;
+  }
+  .numbers_generator > .num_tiltle{
+     font-size: 25px;
+     font-weight: bold;
+  }
+  .numbers_generator > button{
+    justify-self: center;
+    align-self: center;
+    height: 4vh;
+    width: 20vw;
+    padding: 0px 10px 0px 10px;
+    margin-top:5px;
+    font-size: 23px;
+    background-color:transparent;
+  }
+  #showNumber{
+    font-size: 23px;
+    margin: auto;
+    padding: auto;
+    font-weight: bold;
+  }
+  .numbers_generator > button:hover{
+    background-color: transparent;
+  }
+  .tickets_container{
+    grid-template-columns: repeat(1,40vw);
+    grid-gap: 0vh;
+    margin-left: 28%;
+  }
+  .ticket{
+    margin: 10px;
+    grid-template-columns: repeat(9,60px);
+    grid-auto-rows: 60px;
+  }
+  .ticket > .player1 , .player2{
+    font-size: 30px;
+    padding: 5px;
+    font-weight: bold;
+  }
+  .ticket >button{
+    font-size: 25px;
+    border:1px solid white;
+    outline: none;
+    background-color: #FFDBAC;
+  }
+  .winner{
+    background-color: rgba(245, 245, 245, 0.575);
+  }
+  .winner > .winnerBox{
+    top: 30%;
+    left: 30%;
+    transform: translate(-10%,-10%);
+    height: 30vh;
+    width: 70vw;
+    font-size: 25px;
+    color: black;
+    text-align: center;
+  }
+  #last{
+    display: block;
+    height: 5vh;
+    margin-left: 37%;
+    font-size: 30px;
+  }
+}

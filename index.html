@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Housie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="housie.css">
+  
+  <script>
+      document.onkeydown = function(e) {
+if(event.keyCode == 123) {
+return false;
+}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+return false;
+}
+if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+return false;
+}
+if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+return false;
+}
+}
+    </script>
+
+  </head>
+  <body oncontextmenu="return false;">
+  <div id="modal">
+    <div id="dc"><a href="contact.html">developer contact</a></div>
+    <div class="modalconent">
+         <h1 style="text-align:center;color: #352e00;">Welcome to play Housie game</h1>         
+         <div class="modalContainer">
+           <div class="playerNames">
+             <h3>player 1</h3>
+             <input type="text" id="p1">
+             <h3>player 2</h3>
+             <input type="text" id="p2">
+           </div>
+           <div class="game">
+             <h3>Number generator</h3>
+             <div class="radiobtn"><input type="radio" id="radio1" name="gameplay" value="automatic">automatic</div>
+             <div class="radiobtn"><input type="radio" id="radio2" name="gameplay" value="manual">manual</div>
+             <h3>selecting numbers</h3>
+             <div class="radiobtn"><input type="radio" id="radio3" name="numbers_Selection" value="automatic">automatic</div>
+             <div class="radiobtn"><input type="radio" id="radio4" name="numbers_Selection" value="manual">manual</div>
+           </div>
+           <button id="button" class="start" onclick="modalclose()">start</button>
+           
+         </div>
+    </div>
+</div>
+<div class="winner" id="winner">
+  <div class="winnerBox">
+    <h1 id="winnerTitle"></h1>
+    <button class="restart" id="last"  onclick="window.location.reload()">restart</button>
+    <div id="dc"><a href="contact.html">developer contact</a></div>
+  </div>
+</div>
+    <div class="container">
+      <div class="numbers_sheet">
+        <div id="dc"><a href="contact.html">developer contact</a></div>
+        <div id="space"></div>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+        <button cells></button>
+      </div>
+      <div class="middle">
+          <button class="restart" id="restart" onclick="window.location.reload()">restart</button>
+          <div class="numbers_generator">
+             <div class="num_tiltle">Number generator</div>
+             <button id="btn" onclick="generator()">click here</button>
+             <div id="showNumber"></div>
+          </div>
+      </div>
+
+      <div class="tickets_container">
+        <div class="ticket">
+          <div class="player1" id="player1"></div>
+          <button box1 id="a1"></button>
+          <button box1 id="a2"></button>
+          <button box1 id="a3"></button>
+          <button box1 id="a4"></button>
+          <button box1 id="a5"></button>
+          <button box1 id="a6"></button>
+          <button box1 id="a7"></button>
+          <button box1 id="a8"></button>
+          <button box1 id="a9"></button>
+          <button box1 id="a10"></button>
+          <button box1 id="a11"></button>
+          <button box1 id="a12"></button>
+          <button box1 id="a13"></button>
+          <button box1 id="a14"></button>
+          <button box1 id="a15"></button>
+          <button box1 id="a16"></button>
+          <button box1 id="a17"></button>
+          <button box1 id="a18"></button>
+          <button box1 id="a19"></button>
+          <button box1 id="a20"></button>
+          <button box1 id="a21"></button>
+          <button box1 id="a22"></button>
+          <button box1 id="a23"></button>
+          <button box1 id="a24"></button>
+          <button box1 id="a25"></button>
+          <button box1 id="a26"></button>
+          <button box1 id="a27"></button>
+        </div>
+        <div class="ticket">
+          <div class="player2" id="player2"></div>
+          <button box2 id="b1"></button>
+          <button box2 id="b2"></button>
+          <button box2 id="b3"></button>
+          <button box2 id="b4"></button>
+          <button box2 id="b5"></button>
+          <button box2 id="b6"></button>
+          <button box2 id="b7"></button>
+          <button box2 id="b8"></button>
+          <button box2 id="b9"></button>
+          <button box2 id="b10"></button>
+          <button box2 id="b11"></button>
+          <button box2 id="b12"></button>
+          <button box2 id="b13"></button>
+          <button box2 id="b14"></button>
+          <button box2 id="b15"></button>
+          <button box2 id="b16"></button>
+          <button box2 id="b17"></button>
+          <button box2 id="b18"></button>
+          <button box2 id="b19"></button>
+          <button box2 id="b20"></button>
+          <button box2 id="b21"></button>
+          <button box2 id="b22"></button>
+          <button box2 id="b23"></button>
+          <button box2 id="b24"></button>
+          <button box2 id="b25"></button>
+          <button box2 id="b26"></button>
+          <button box2 id="b27"></button>
+        </div>
+      </div>
+    </div>
+   
+   <script src="script.js" charset="utf-8"></script>
+  </body>
+</html>
